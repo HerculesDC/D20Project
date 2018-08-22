@@ -1,0 +1,59 @@
+﻿  Main.cpp
+c:\users\hercu\documents\schoolstuff\sem 4.5\oop review\oop-assignment1\main.cpp(18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.12.25827\include\xmemory0(945): error C2512: 'Abilities::Abilities': no appropriate default constructor available
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.12.25827\include\xmemory(247): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,>(_Alloc &,_Objty *const )' being compiled
+          with
+          [
+              _Alloc=std::allocator<Abilities>,
+              _Ty=Abilities,
+              _Objty=Abilities
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.12.25827\include\xmemory(247): note: see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,>(_Alloc &,_Objty *const )' being compiled
+          with
+          [
+              _Alloc=std::allocator<Abilities>,
+              _Ty=Abilities,
+              _Objty=Abilities
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.12.25827\include\xmemory(273): note: see reference to function template instantiation '_FwdIt std::_Uninitialized_value_construct_n1<_FwdIt,_Diff,_Alloc>(_FwdIt,_Diff,_Alloc &,std::false_type)' being compiled
+          with
+          [
+              _FwdIt=Abilities *,
+              _Diff=unsigned int,
+              _Alloc=std::allocator<Abilities>
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.12.25827\include\vector(1902): note: see reference to function template instantiation '_FwdIt *std::_Uninitialized_value_construct_n<Abilities*,unsigned int,std::allocator<_Ty>>(_FwdIt,_Diff,_Alloc &)' being compiled
+          with
+          [
+              _FwdIt=Abilities *,
+              _Ty=Abilities,
+              _Diff=unsigned int,
+              _Alloc=std::allocator<Abilities>
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.12.25827\include\vector(1901): note: while compiling class template member function 'Abilities *std::vector<Abilities,std::allocator<_Ty>>::_Udefault(Abilities *,const unsigned int)'
+          with
+          [
+              _Ty=Abilities
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.12.25827\include\vector(698): note: see reference to function template instantiation 'Abilities *std::vector<Abilities,std::allocator<_Ty>>::_Udefault(Abilities *,const unsigned int)' being compiled
+          with
+          [
+              _Ty=Abilities
+          ]
+  c:\users\hercu\documents\schoolstuff\sem 4.5\oop review\oop-assignment1\character.hpp(50): note: see reference to class template instantiation 'std::vector<Abilities,std::allocator<_Ty>>' being compiled
+          with
+          [
+              _Ty=Abilities
+          ]
+  Character.cpp
+  Generating Code...
+  Compiling...
+  Player.cpp
+c:\users\hercu\documents\schoolstuff\sem 4.5\oop review\oop-assignment1\player.cpp(52): warning C4390: ';': empty controlled statement found; is this the intent?
+  Minion.cpp
+  Lieutenant.cpp
+  Boss.cpp
+  Generating Code...
+c:\users\hercu\documents\schoolstuff\sem 4.5\oop review\oop-assignment1\player.cpp(41): warning C4715: 'Player::getInherentBonus': not all control paths return a value
+  Skipping... (no relevant changes detected)
+  Abilities.cpp
