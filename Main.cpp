@@ -27,16 +27,23 @@ int main(void) {
 
 	for (int i = 0; i < abilities.size(); i++) abilities[i].print();
 
-	Player herc("Herc", 115, 10, 10, 10, 10);
+	Player herc("Herc", 115, 10, 10, 10, 10), hark("Hark", 98, 13, 8, 10, 10);
 
 	herc.addAbility(abilities[0]);
 	herc.print();
-	
+	hark.addAbility(abilities[1]);
+
+	herc.print();
+	hark.print();
 	herc.getAbility(0).print();
-	herc.useAbility(0, &herc);
+	hark.getAbility(0).print();
+	herc.useAbility(1, &hark); //careful! Slot uses ability number, not order in the array!!!
 	herc.print();
-	herc.takeDamage(15);
-	herc.print();
+	hark.print();
+
+	std::cout << hark.useAbility(1, &hark) << std::endl;
+
+	hark.print();
 
 	std::cout << std::endl;
 	std::cout << "So far, the code is being compiled all right. You may close this window (for now)" << std::endl;

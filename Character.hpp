@@ -37,7 +37,7 @@ class Character {
 		
 		//REVISE!!! These next two functions may not require such argument list
 		virtual short			useAbility(const Ability selectedAbility, Character* target) = 0;
-		virtual short			useAbility(const uShort slot, Character* target) = 0;
+		virtual short			useAbility(const uShort slot, Character* target) = 0; //this is planned to take slot number, not array order!
 
 	protected: //methods
 

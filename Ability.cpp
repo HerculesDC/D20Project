@@ -35,13 +35,14 @@ Ability::compl Ability() {
 	}
 }
 
-std::string		Ability::getName() const		{ return this->name; }
-std::string		Ability::getDescription() const { return this->description; }
-std::string		Ability::getAction() const		{ return this->action; }
+std::string		Ability::getName()			const { return this->name; }
+std::string		Ability::getDescription()	const { return this->description; }
+std::string		Ability::getAction()		const { return this->action; }
+Ability::Type	Ability::getType()			const { return this->type; }
 
-short			Ability::getBaseDamage() const	{ return this->baseDamage; }
+short			Ability::getBaseDamage()	const { return this->baseDamage; }
 
-short*			Ability::getTurnBonuses() const {
+short*			Ability::getTurnBonuses()	const {
 	
 	short* temp = new short[Stat::StatCount];
 
@@ -58,6 +59,14 @@ short*			Ability::getNextBonuses() const {
 
 	return temp;
 }
+
+//A bit clumsy right now. The idea is to have abilities that increase/decrease the cooldown of others
+void			Ability::setCooldown(uShort _cooldown) { 
+									
+	if (_cooldown <= this->cooldown) this->cooldownTimer = _cooldown;
+}
+
+void			Ability::resetCooldown() { this->cooldownTimer = this->cooldown; }
 
 //These next two functions may need to be removed later...
 void			Ability::setTurnBonuses(short* bonusArray, const uShort bonusArraySize) const {
@@ -78,11 +87,9 @@ void			Ability::setNextBonuses(short* bonusArray, const uShort bonusArraySize) c
 	for (int i = 0; i < temp; i++) bonusArray[i] = this->nextBonuses[i];
 }
 
-uShort			Ability::getCooldown() const	{ return this->cooldown; }
-uShort			Ability::getTimer() const		{ return this->cooldownTimer; }
-bool			Ability::isOnCooldown() const	{ return this->onCooldown; }
-
-//void			Ability::use() {}
+uShort			Ability::getCooldown()	const { return this->cooldown; }
+uShort			Ability::getTimer()		const { return this->cooldownTimer; }
+bool			Ability::isOnCooldown() const { return this->onCooldown; }
 
 //Private function that controls cooldown. 
 	//While the original idea was to return void, returning a bool seems to make more sense (to assign onCooldown)

@@ -31,27 +31,56 @@ short	Player::useAbility(const Ability selectedAbility, Character* target) {
 	else return 0;
 }
 
+//It's returning a short because of the initial design... verify what to do later
 short	Player::useAbility(const uShort slot, Character* target) { 
 
 	uShort tempSlot = slot - 1; //to avoid off-by-one assignments
 
-	if (tempSlot >=0 && tempSlot < this->ab.size() && !this->ab[tempSlot].isOnCooldown()) {
+	if (tempSlot >=0 && tempSlot < this->ab.size()){
 
-		short* tempBonus = this->ab[tempSlot].getTurnBonuses();
-			for (int i = 0; i < Stat::StatCount; i++) this->bonus[i] += tempBonus[i];
+		if (!this->ab[tempSlot].isOnCooldown()) {
 
-		short damage = this->getStat(Stat::Attack).getBonus() + this->getBonus(Stat::Attack) + this->ab[tempSlot].getBaseDamage();
+			if (this->ab[tempSlot].getType() != Ability::Type::Heal) {
 
-		std::cout << damage << std::endl;
+				short* tempBonus = this->ab[tempSlot].getTurnBonuses();
+				for (int i = 0; i < Stat::StatCount; i++) this->bonus[i] += tempBonus[i];
 
-		tempBonus = this->ab[tempSlot].getNextBonuses();
-			for (int i = 0; i < Stat::StatCount; i++) this->bonus[i] = tempBonus[i];
+				short damage = this->getStat(Stat::Attack).getBonus() + this->getBonus(Stat::Attack) + this->ab[tempSlot].getBaseDamage();
 
-		target->takeDamage(damage);
-		
-		return damage;
+				std::cout << damage << std::endl;
+
+				tempBonus = this->ab[tempSlot].getNextBonuses();
+				for (int i = 0; i < Stat::StatCount; i++) this->bonus[i] = tempBonus[i];
+				
+				this->ab[tempSlot].resetCooldown();
+
+				target->takeDamage(damage);
+
+				return damage;
+			}
+			else {
+
+				short* tempBonus = this->ab[tempSlot].getTurnBonuses();
+				for (int i = 0; i < Stat::StatCount; i++) this->bonus[i] += tempBonus[i];
+
+				short healing = this->getStat(Stat::Wisdom).getBonus() + this->getBonus(Stat::Wisdom) + this->ab[tempSlot].getBaseDamage();
+
+				std::cout << healing << std::endl;
+
+				tempBonus = this->ab[tempSlot].getNextBonuses();
+				for (int i = 0; i < Stat::StatCount; i++) this->bonus[i] = tempBonus[i];
+
+				this->ab[tempSlot].resetCooldown();
+
+				target->takeDamage(healing);
+
+				return healing;
+			}
+		}
+		else return 0;
 	}
-	else return 0;
+	else throw std::out_of_range("Invalid Ability Slot!!!"); //rewrite for efficiency!
+	
 }
 
 

@@ -20,6 +20,7 @@ class Ability {
 		std::string getName() const;
 		std::string getDescription() const;
 		std::string getAction() const;
+		Type		getType() const;
 
 		short		getBaseDamage() const;
 
@@ -27,16 +28,16 @@ class Ability {
 		uShort		getTimer() const;
 		bool		isOnCooldown() const;
 
-
 		short*		getTurnBonuses() const;
 		short*		getNextBonuses() const;
+
+		void		setCooldown(uShort cooldown);
+		void		resetCooldown();
 
 		//the functions below follow an OpenGL approach, but I realized they're not good when you apply OOP principles
 			//also, not sure "const" applies here
 		void		setTurnBonuses(short* targetArray, const uShort bonusArraySize) const;
 		void		setNextBonuses(short* targetArray, const uShort bonusArraySize) const;
-
-		//void		use();
 
 		void		print();
 
