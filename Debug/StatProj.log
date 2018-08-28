@@ -1,0 +1,4 @@
+﻿  Main.cpp
+c:\users\hercu\documents\visual studio 2017\projects\statproj\main.cpp(21): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\hercu\documents\visual studio 2017\projects\statproj\main.cpp(28): warning C4018: '<': signed/unsigned mismatch
+  StatProj.vcxproj -> C:\Users\hercu\documents\visual studio 2017\Projects\StatProj\Debug\StatProj.exe

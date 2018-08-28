@@ -1,0 +1,28 @@
+
+//class forward declarations
+class Stat;
+class Health;
+class Ability;
+class Character;
+class Player;
+class Cook;
+class Chef;
+class MasterChef;
+
+namespace printer{
+	void printStat(const Stat const stat);
+	void printHealth(const Health const health);
+	void printHealthAsFraction(const Health const health);
+}
+
+void printer::printStat(const Stat const stat) {
+	std::cout << "Stat: " << stat.getName() << ", value: " << stat.getStat() << ", inherent bonus: " << stat.getBonus() << std::endl;
+}
+
+void printer::printHealth(const Health const health) {
+	std::cout << "Health: " << health.getHealth() << ". Max health: " << health.getMaxHealth() << std::endl;
+}
+
+void printer::printHealthAsFraction(const Health const health) {
+	std::cout << "Health: " << health.getHealth() << '/' << health.getMaxHealth() << std::endl;
+}
